@@ -1,0 +1,5 @@
+- insert:
+    - id: better-left-sidebar
+      name: dsh-better-left-sidebar
+      config:
+        enabled: true

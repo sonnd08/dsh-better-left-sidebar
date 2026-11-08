@@ -1,0 +1,18 @@
+{
+  "extends": "../../../tsconfig.base.client.json",
+  "compilerOptions": {
+    "composite": false,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "types": ["client-build-environment"]
+  },
+  "include": ["src/client", "src/css-modules.d.ts"],
+  "references": [
+    { "path": "../../../vendor/cordis" },
+    { "path": "../../../packages/client/ui-slots" },
+    { "path": "../../../packages/client/locale/tsconfig.client.json" },
+    { "path": "../../../packages/client/ui-primitives" },
+    { "path": "../../../packages/client/ui-sidebar" },
+    { "path": "../../../packages/client/ui-workspace" }
+  ]
+}

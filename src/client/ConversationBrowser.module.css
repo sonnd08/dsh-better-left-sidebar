@@ -1,0 +1,247 @@
+.root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-height: 0;
+  padding: 2px 8px 0;
+}
+
+.searchBox {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  box-sizing: border-box;
+  padding: 0 4px 0 10px;
+  border-radius: var(--dsw-radius-md);
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+.searchIcon {
+  flex: none;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.searchInput {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--dsw-alias-label-primary);
+  font: inherit;
+}
+
+.searchInput::placeholder {
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.newChat {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: var(--dsw-radius-md);
+  background: transparent;
+  color: var(--dsw-alias-label-primary);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.newChatLabel {
+  flex: 1;
+  min-width: 0;
+}
+
+.newChatShortcut {
+  visibility: hidden;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.newChat:hover .newChatShortcut,
+.newChat:focus-visible .newChatShortcut {
+  visibility: visible;
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+  margin-right: -8px;
+  padding-right: 8px;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+.section {
+  margin-top: 10px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 4px 0 10px;
+}
+
+.sectionTitle {
+  flex: 1;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 12px;
+}
+
+/* Opacity, not visibility: a hidden control cannot take the keyboard focus. */
+.sectionMenu {
+  display: inline-flex;
+  opacity: 0;
+}
+
+.sectionHeader:hover .sectionMenu,
+.sectionMenu:focus-within,
+.sectionMenuOpen {
+  opacity: 1;
+}
+
+.empty {
+  padding: 4px 10px;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 13px;
+}
+
+.iconButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--dsw-radius-sm);
+  background: transparent;
+  color: var(--dsw-alias-label-secondary);
+  cursor: pointer;
+}
+
+.row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 32px;
+  box-sizing: border-box;
+  padding: 0 6px 0 8px;
+  border-radius: var(--dsw-radius-md);
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.selected,
+.menuOpen {
+  background: var(--dsw-alias-interactive-bg-hover);
+}
+
+/* The insertion line of a manual-order drag. */
+.dropBefore::before,
+.dropAfter::before {
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--dsw-alias-state-business-primary);
+  content: '';
+}
+
+.dropBefore::before {
+  top: -1px;
+}
+
+.dropAfter::before {
+  bottom: -1px;
+}
+
+.leading {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 20px;
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  margin: 0 6px;
+  overflow: hidden;
+  line-height: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.snippet {
+  display: block;
+  overflow: hidden;
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 12px;
+  line-height: 16px;
+  text-overflow: ellipsis;
+}
+
+.resting {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.time {
+  color: var(--dsw-alias-label-tertiary);
+  font-size: 12px;
+}
+
+.actions {
+  flex: none;
+  display: none;
+  align-items: center;
+  gap: 2px;
+}
+
+.menuOpen .resting,
+.row:focus-visible .resting,
+.row:has(:focus-visible) .resting {
+  display: none;
+}
+
+.menuOpen .actions,
+.row:focus-visible .actions,
+.row:has(:focus-visible) .actions {
+  display: inline-flex;
+}
+
+@media (hover: hover) {
+  .newChat:hover,
+  .row:hover {
+    background: var(--dsw-alias-interactive-bg-hover);
+  }
+
+  .iconButton:hover {
+    background: var(--dsw-alias-interactive-bg-hover);
+    color: var(--dsw-alias-label-primary);
+  }
+
+  .row:hover .resting {
+    display: none;
+  }
+
+  .row:hover .actions {
+    display: inline-flex;
+  }
+}
