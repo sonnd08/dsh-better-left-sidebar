@@ -3,7 +3,7 @@
  * above the session list. This shell moves them, the settings and the footer actions into the rail.
  * @module dsh-better-left-sidebar/client/RailShell
  */
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import {
   FishLogo, IconAppsAddOutlineRegular, IconNewChatOutlineRegular, IconPanelLeftOutlineRegular,
   isDarwinDesktop, Menu, Tooltip, useModalLayer,
@@ -40,13 +40,13 @@ function RailPanel({ id, label, usePanelInfo, selectPanel, renderSlot }: RailPro
 
 /**
  * Render the sidebar column.
- * @param props - the props of the native sidebar entry.
+ * @param props - the props of the native sidebar entry, and the update and settings buttons in `footer`.
  * @returns the rail and the conversation column.
  */
 export function RailShell({
   collapsed, width, drawer, startSession, toggleSidebar, selectPanel, setPinned,
-  useRemoteAccess, usePanels, useEntryPins, useEntryActions, useShortcuts, usePanelInfo, t, renderSlot,
-}: SidebarRootComponentProps) {
+  useRemoteAccess, usePanels, useEntryPins, useEntryActions, useShortcuts, usePanelInfo, t, renderSlot, footer,
+}: SidebarRootComponentProps & { footer: ReactNode }) {
   const panels = usePanels(snapshot => snapshot)
   const unpinned = useEntryPins(ids => ids)
   const activePanelId = usePanelInfo(info => info.activePanelId)
@@ -134,6 +134,7 @@ export function RailShell({
           )}
           <span className={css.railSpacer} />
           {renderSlot('sidebar.footer.action', { wide: false })}
+          {footer}
           {renderSlot('sidebar.settings', { wide: false })}
         </nav>
         <div className={css.main}>

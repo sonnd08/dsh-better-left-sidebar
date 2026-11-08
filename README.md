@@ -9,7 +9,7 @@ The column has four sections, in this order:
 3. **Pinned** shows the pinned chats.
 4. **Recents** shows the other chats.
 
-The rail holds the panels, the More menu and the account menu.
+The rail holds the panels, the More menu, the update button, the settings gear and the `…` menu with the other options. The update button shows only when the app has an update.
 
 ## Sort a section
 

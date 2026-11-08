@@ -118,6 +118,41 @@
   color: var(--dsw-alias-label-primary);
 }
 
+.railUpdate {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  corner-shape: round;
+  background: var(--dsw-alias-brand-primary-new-colorprimary-new-color);
+  color: #fff;
+  cursor: pointer;
+}
+
+.railUpdate[aria-disabled='true'] {
+  cursor: default;
+}
+
+.railSpinner {
+  animation: rail-spin 1s linear infinite;
+}
+
+@keyframes rail-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .railSpinner {
+    animation: none;
+  }
+}
+
 @media (hover: hover) {
   .toggle:hover,
   .railButton:hover {
