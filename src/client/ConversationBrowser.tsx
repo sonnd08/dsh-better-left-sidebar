@@ -12,6 +12,7 @@ import type { StateDotState } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { WorkspaceBrowserProps } from '@deepseek-ai/dsh-client-ui-workspace/client'
 import type { BrowserKey } from './locales.ts'
 import { byUpdated, manualOrder, moveRow, type SectionId, type SortMode } from './order.ts'
+import type { OpenChatRef } from './pin-shortcut.ts'
 import type { SortStore } from './sort-store.ts'
 import { classes } from './classes.ts'
 import css from './ConversationBrowser.module.css'
@@ -255,9 +256,10 @@ function titleOf(session: { readonly displayTitle?: string | undefined; readonly
 /**
  * Create the column component for one sort store.
  * @param store - sort state of the sections.
+ * @param openChat - receives the chat that the main view shows.
  * @returns the component for the `sidebar.workspaces` slot.
  */
-export function createConversationBrowser(store: SortStore) {
+export function createConversationBrowser(store: SortStore, openChat: OpenChatRef) {
   return function ConversationBrowser(props: BrowserProps): ReactNode {
     const {
       wide, expandSidebar, useSessions, useWorkspaces, usePanelInfo, useSessionStatus, useRemoteAccess, useShortcuts,
@@ -327,6 +329,12 @@ export function createConversationBrowser(store: SortStore) {
     const currentId = panelActive
       ? undefined
       : Object.values(list.byId).find(session => (session.retainedBy.mainView ?? 0) > 0)?.id
+    const openRow = currentId !== undefined && visible.includes(currentId) ? modelOf(currentId) : undefined
+    const openId = openRow?.id
+    const openTitle = openRow?.title
+    useEffect(() => {
+      openChat.current = openId === undefined || openTitle === undefined ? undefined : { id: openId, title: openTitle }
+    }, [openId, openTitle])
     const slots: RowSlots = {
       renderSlot: props.renderSlot,
       openSessionMenu: props.openSessionMenu,

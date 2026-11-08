@@ -11,6 +11,10 @@ The column has four sections, in this order:
 
 The rail holds the panels, the More menu, the update button, the settings gear and the `…` menu with the other options. The update button shows only when the app has an update.
 
+## Pin the open chat
+
+Push Cmd+P (Ctrl+P on Windows and Linux) to pin or unpin the open chat. This key replaces the native shortcut of the Files panel. You can change both keys in the shortcut settings of the app.
+
 ## Sort a section
 
 Each of Pinned and Recents has a `…` menu. Move the pointer onto the section title to show it.
