@@ -1,6 +1,10 @@
 # dsh-better-left-sidebar
 
-A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugin that changes the left sidebar to a small icon rail and a large conversation column.
+A [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) plugin that changes the left sidebar to a small icon rail and a large conversation column, with search, new chat, pinned and recents.
+
+<img src="docs/sidebar-example.png" alt="The sidebar with an icon rail, a search field, New chat, Pinned and Recents. The sort menu of Recents is open." width="340">
+
+The image is a mock-up with sample chats.
 
 The column has four sections, in this order:
 
